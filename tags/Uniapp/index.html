@@ -34,62 +34,6 @@
 
     
     
-    
-        <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        
-            load: ['[tex]/mhchem'],
-        
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        
-            packages: {'[+]': ['mhchem']},
-        
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
           
 
     
@@ -267,51 +211,26 @@
 </v-row>
 
                             <v-card class="elevation-2 index-card">
-  
-    <article class="index-article">
-      
-      <div class="index-article-header">
-        <v-row no-gutters>
-          <v-col cols="auto">
-            <div class="index-article-header-date font-weight-medium">
-              2021-10-14
-            </div>
-          </v-col>
-          <v-spacer></v-spacer>
-          <v-col cols="auto">
-            
-              <v-card flat color="secondary" tile class="index-article-header-tag  font-weight-medium">
-                
-                  <span class="index-article-header-tag-content">
-                    <v-icon>fas fa-tag</v-icon>
-                    <a rel="tag" href = /tags/Uniapp/ >Uniapp</a>
-                  </span>
-                
-              </v-card>
-            
-          </v-col>
-        </v-row>
-        <span>
-          
-            <a class="index-article-header-category font-weight-bold" href="/categories/Sjian/">Sjian></a>
-           
-        </span> 
-        <a class="index-article-header-title font-weight-medium" href="/2021/10/14/%E5%9C%A8uniapp%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E9%80%9A%E8%AE%AF/">Uniapp中低功耗蓝牙的使用</a>
-      </div>
-      
-      <div class="index-article-content">
+    <v-timeline class="timeline" dense>
+        <v-timeline-item class="timeline-header" color="secondary lighten-2">
+            <span class="timeline-title">Uniapp</span>
+            <span class="timeline-subtitle">Tags</span>
+        </v-timeline-item>
         
-          在uniAPP中使用使用低功耗蓝牙通讯1、初始化蓝牙监听器12345678910111213141516171819onLoad()&#123;    //蓝牙是否在扫描设备    uni.onBluetoothAdapterStateChange((res)=&gt;&#123;         console.log(&quot;蓝牙&quot;+(res.discovering ? &quot;开启&quot;:&quot;关闭&quot;)+&quot;搜索&quot;)         this.discovering = res.discovering;    &#125;)...
+            <v-timeline-item fill-dot small color="secondary lighten-2">
+                <div class="timeline-item-post d-none d-md-block">
+                    <span class="timeline-item-time">2021.10.14</span>
+                    <a href="/2021/10/14/%E5%9C%A8uniapp%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E9%80%9A%E8%AE%AF/" class="timeline-item-title">Uniapp中低功耗蓝牙的使用</a>
+                </div>
+                <div class="timeline-item-post-mobile d-block d-md-none">
+                    <span class="timeline-item-time">2021.10.14</span><br>
+                    <a href="/2021/10/14/%E5%9C%A8uniapp%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E9%80%9A%E8%AE%AF/" class="timeline-item-title">Uniapp中低功耗蓝牙的使用</a>
+                </div>
+                <v-divider></v-divider>
+            </v-timeline-item>
         
-      </div>
-      
-      <div class="index-article-readmore ">
-        <v-btn text href="/2021/10/14/%E5%9C%A8uniapp%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BD%BF%E7%94%A8%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E9%80%9A%E8%AE%AF/">Read More</v-btn>
-      </div>
-      <v-divider></v-divider>
-    </article> 
-   
-</v-card>  
+    </v-timeline>
+</v-card>
 
          
                             <div id="mobile-footer" class="d-block d-md-none">
